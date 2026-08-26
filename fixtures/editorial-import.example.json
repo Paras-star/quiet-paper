@@ -1,0 +1,9 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "body": "EXAMPLE fixture only. This is not the founder library.",
+    "minimum_age": 18,
+    "maximum_age": 40,
+    "status": "pending"
+  }
+]
