@@ -1,0 +1,417 @@
+[
+  {
+    "body": "Pick friends who listen, respect your feelings, and treat you nicely.",
+    "minimum_age": 10,
+    "maximum_age": 12
+  },
+  {
+    "body": "Stay away from people who laugh at you, spread rumours, or make you feel small.",
+    "minimum_age": 10,
+    "maximum_age": 12
+  },
+  {
+    "body": "Be kind to yourself, be your own best friend.",
+    "minimum_age": 10,
+    "maximum_age": 12
+  },
+  {
+    "body": "Making mistakes is how you learn and grow stronger.",
+    "minimum_age": 13,
+    "maximum_age": 15
+  },
+  {
+    "body": "Explore different hobbies, sports, or creative projects to find out what you truly enjoy.",
+    "minimum_age": 13,
+    "maximum_age": 15
+  },
+  {
+    "body": "Do not drop your friends or hobbies for your partner.",
+    "minimum_age": 16,
+    "maximum_age": 18
+  },
+  {
+    "body": "Aim for 8–9 hours of sleep. A sleep-deprived brain takes twice as long to finish simple tasks.",
+    "minimum_age": 16,
+    "maximum_age": 18
+  },
+  {
+    "body": "Stop comparing your messy reality to everyone else's highlight reels.",
+    "minimum_age": 16,
+    "maximum_age": 18
+  },
+  {
+    "body": "Making mistakes in your early twenties matters less because you have ample time to recover and pivot.",
+    "minimum_age": 19,
+    "maximum_age": 22
+  },
+  {
+    "body": "Get really good at a specific, valuable skill instead of worrying about a strict ten-year career plan.",
+    "minimum_age": 19,
+    "maximum_age": 22
+  },
+  {
+    "body": "At 22 I thought I was behind because everyone else seemed to have life figured out. Looking back, almost nobody did.",
+    "minimum_age": 19,
+    "maximum_age": 22
+  },
+  {
+    "body": "Negative emotions only show up for one reason and that's to help you.",
+    "minimum_age": 19,
+    "maximum_age": 22
+  },
+  {
+    "body": "21 is very young, you are not really missing out of your 20s.",
+    "minimum_age": 19,
+    "maximum_age": 22
+  },
+  {
+    "body": "Focus on acquiring high-income or digital skills rather than relying on your degree alone.",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "Strong people skills and clear communication often beat raw experience.",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "Minimise wasting your time and money on immediate gratification/pleasure.",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "You can not control other people, you can only control your reaction to them",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "Take your responsibilities seriously, but not yourself.",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "No matter how good or bad things get, they will change",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "Be cool. Don’t be a fool",
+    "minimum_age": 23,
+    "maximum_age": 26
+  },
+  {
+    "body": "Focus on mastering in-demand expertise—such as advanced communication, technical capabilities, or leadership—that compounds over your career.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Keep up with routine dental checkups and basic screenings like blood pressure and cholesterol.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Avoid rushing into major life milestones like marriage or homeownership just to match peer pressure or societal expectations.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Walk away from draining relationships, whether personal or professional.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "If you’re not exercising regularly, start now.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Go ahead and accept the fact that you will never be able to predict where you’ll be at in life when you turn 35.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Every choice has a hidden cost. The peer with the high-paying executive job may have zero free time and high stress; the peer traveling the world may lack financial security.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Social media highlights only the top 1% of your peers' successes, hiding their debt, relationship struggles, or career burnout.",
+    "minimum_age": 27,
+    "maximum_age": 30
+  },
+  {
+    "body": "Visit your doctor for routine checks on blood pressure, cholesterol, blood sugar, and mental health.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Make a serious financial push now so compounding interest can work for you.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "If you are stable, spend money on services like laundry or cleaning to buy back free time.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Focus on deep connections with a few close friends rather than a large group of casual acquaintances.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Drinking doesn’t solve your problems. Face them head on.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "The first thing you need to focus on for self improvement is mental health because poor mental health can get you stuck into constantly failing.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Learn to say no to social or family obligations that drain your energy.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Trade long hours at work for being there for your children's daily routines, school events, and bedtime.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Staying a generalist for too long, making you easily replaceable by cheaper, younger talent.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Ensure you have 6–12 months of living expenses. Financial runway gives you the power to say \"no\" to toxic workplaces and \"yes\" to risky, high-reward pivots.",
+    "minimum_age": 31,
+    "maximum_age": 35
+  },
+  {
+    "body": "Use daily meditation or proper nasal breathing techniques to lower your stress levels.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Spend meaningful time with your partner, family, and close friends instead of letting work consume your life.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Update your professional skills regularly to stay competitive and adaptable in your career.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "You can have it all, just not all at the same exact time.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Track your emotional resilience, self-awareness, and peace instead of external trophies.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Focus on daily inputs and values rather than fixed age-based outcomes.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Benchmarking against peers ignores their hidden struggles and privileges.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Apply a strict rule to your social life and commitments—if a voluntary connection or activity doesn’t contribute to your health, happiness, or growth, offload it.",
+    "minimum_age": 36,
+    "maximum_age": 40
+  },
+  {
+    "body": "Schedule regular screenings for blood pressure, cholesterol, and blood sugar.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Incorporate strength training three times weekly to counter natural muscle loss.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Increase contributions to accounts like 401(k)s or IRAs.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Invest time in deep, reciprocal friendships instead of superficial networks.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Invest time in deep, reciprocal friendships instead of superficial networks.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Build consulting, freelance, or passive channels outside your main job.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Don’t waste your youth for an old age you aren’t guaranteed.",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Reinvent yourself, Recall what you loved at age 10",
+    "minimum_age": 41,
+    "maximum_age": 45
+  },
+  {
+    "body": "Do resistance training twice a week to fight age-related muscle loss and keep bones strong.",
+    "minimum_age": 46,
+    "maximum_age": 50
+  },
+  {
+    "body": "Focus on lean protein, fruits, and vegetables while limiting processed foods and added sugar.",
+    "minimum_age": 46,
+    "maximum_age": 50
+  },
+  {
+    "body": "Balance high career demands and family responsibilities with regular social connection and downtime.",
+    "minimum_age": 46,
+    "maximum_age": 50
+  },
+  {
+    "body": "Consult a professional financial planner to review retirement savings and manage midlife monetary stress.",
+    "minimum_age": 46,
+    "maximum_age": 50
+  },
+  {
+    "body": "Your health in your 50s is like a savings account you will begin drawing heavily from in your 60s and 70s.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Pick up activities now that you can physically carry into your 70s—such as pickle ball, gardening, or woodworking.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Go through your attic, basement, or storage units now. Downsizing or moving in your 60s is vastly easier if you purge decades of accumulated items today.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Intentionally schedule regular contact with friends, join local groups, or volunteer.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Allow your kids to live their own lives without over-managing them.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Focus on your own life partner or independent social circle.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Visit your doctor for routine blood pressure, cholesterol, and cancer checks.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Aim for 7 to 8 hours of quality sleep each night.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Max out your retirement contributions and trim unnecessary lifestyle inflation like buying larger homes or brand-new cars.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Keep track of your blood pressure and lipid/cholesterol panel annually.",
+    "minimum_age": 51,
+    "maximum_age": 60
+  },
+  {
+    "body": "Use smartphone reminders, shared calendars, and strict designated spots for your keys or glasses to minimise daily cognitive fatigue.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Participate in book clubs, community choirs, or local theatre groups.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Get annual checks to catch high blood pressure early and lower your risk of heart disease and stroke.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Aim for at least 150 minutes of moderate aerobic activity weekly, such as walking, swimming, or dancing.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Incorporate gentle stretching or yoga to stay flexible and manage everyday joint aches.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Learn a new skill, take a class, or pick up an instrument to build new neural pathways and keep your mind sharp.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Maintain regular attendance at a local spiritual centre to join organised social sub-groups.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Offer your professional experience or time to a local food bank, animal shelter, or mentoring program.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Speak directly with your primary care doctor about feelings of isolation; they can refer you to community health link workers to find local support.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "Happy older marriages thrive when partners maintain separate hobbies alongside shared ones.",
+    "minimum_age": 61,
+    "maximum_age": 70
+  },
+  {
+    "body": "You cannot do everything at once, so pick a few important goals and do them very well.",
+    "minimum_age": 10,
+    "maximum_age": 30
+  },
+  {
+    "body": "Action cures anxiety; trying and failing teaches you more than doing nothing at all.",
+    "minimum_age": 20,
+    "maximum_age": 40
+  },
+  {
+    "body": "Put money into retirement accounts or investments regularly, even in small amounts.",
+    "minimum_age": 30,
+    "maximum_age": 50
+  },
+  {
+    "body": "Use daily practices like walking, yoga, or meditation to lower cortisol levels.",
+    "minimum_age": 40,
+    "maximum_age": 60
+  },
+  {
+    "body": "Practice standing on one leg or heel-to-toe walking daily to prevent dangerous falls.",
+    "minimum_age": 50,
+    "maximum_age": 70
+  }
+]
