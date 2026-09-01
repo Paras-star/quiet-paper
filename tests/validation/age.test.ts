@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseContributionAgeRange, parseRequestedAge } from "@/lib/validation/age";
+import { parseContributionAgeRange, parseRequestedAge, isWisdomSharingAge } from "@/lib/validation/age";
 describe("parseRequestedAge", () => {
   it("accepts integers 10–100", () => {
     expect(parseRequestedAge(10)).toEqual({ ok: true, age: 10 });
@@ -26,5 +26,17 @@ describe("parseContributionAgeRange", () => {
     expect(parseContributionAgeRange("", "20")).toMatchObject({
       ok: false, minimumIssue: "empty",
     });
+  });
+});
+
+describe("isWisdomSharingAge", () => {
+  it("is true only for 75–100 inclusive", () => {
+    expect(isWisdomSharingAge(74)).toBe(false);
+    expect(isWisdomSharingAge(75)).toBe(true);
+    expect(isWisdomSharingAge(82)).toBe(true);
+    expect(isWisdomSharingAge(99)).toBe(true);
+    expect(isWisdomSharingAge(100)).toBe(true);
+    expect(isWisdomSharingAge(101)).toBe(false);
+    expect(isWisdomSharingAge(25)).toBe(false);
   });
 });

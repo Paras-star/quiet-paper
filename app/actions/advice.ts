@@ -5,6 +5,7 @@ import type { PublicAdvicePick } from "@/lib/domain/public-advice";
 import type { AdviceExclusion } from "@/lib/session/exclusion";
 import { coarseClientKey } from "@/lib/security/client-key";
 import { consumeRateLimit } from "@/lib/security/rate-limit";
+import { isWisdomSharingAge, parseRequestedAge } from "@/lib/validation/age";
 
 /**
  * Public obtain/next advice. Age and eligibility are validated on the server.
@@ -19,6 +20,10 @@ export async function requestPublicAdvice(
     : [];
   const exclusion: AdviceExclusion = { seenIds: ids };
   try {
+    const parsed = parseRequestedAge(requestedAge);
+    if (parsed.ok && isWisdomSharingAge(parsed.age)) {
+      return { kind: "unavailable" };
+    }
     const key = await coarseClientKey();
     if (consumeRateLimit("select", key) === "limited") {
       console.error("Public advice selection rate-limited");

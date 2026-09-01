@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 type ContributionReceivedProps = {
-  primaryLabel: "Back to advice" | "See advice";
+  primaryLabel: "Back to advice" | "See advice" | "Back";
   onPrimary: () => void;
   onOfferAnother: () => void;
 };

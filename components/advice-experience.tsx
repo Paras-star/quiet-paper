@@ -8,9 +8,12 @@ import { AdviceReading } from "@/components/advice-reading";
 import { AgeLanding } from "@/components/age-landing";
 import { ContributionReceived } from "@/components/contribution-received";
 import { OfferAdviceForm } from "@/components/offer-advice-form";
+import { WisdomInvite } from "@/components/wisdom-invite";
 import type { PublicAdviceItem } from "@/lib/domain/public-advice";
 import { rememberSeen, type SeenByAge } from "@/lib/session/exclusion";
 import { pickInAdviceSession } from "@/lib/session/advice-cycle";
+import { contributionPrefillForWisdom } from "@/lib/session/wisdom";
+import { isWisdomSharingAge } from "@/lib/validation/age";
 
 type LoopScreen =
   | { name: "age" }
@@ -23,7 +26,8 @@ type LoopScreen =
       reportThanks: boolean;
       rateLimited: boolean;
     }
-  | { name: "exhausted"; age: number };
+  | { name: "exhausted"; age: number }
+  | { name: "wisdom"; age: number };
 
 type Screen =
   | LoopScreen
@@ -38,16 +42,35 @@ function adviceTitle(age: number) {
   return `Advice for age ${age} · Life advice`;
 }
 
+function wisdomTitle(age: number) {
+  return `For age ${age} · Life advice`;
+}
+
 function isLoopScreen(screen: Screen): screen is LoopScreen {
-  return screen.name === "age" || screen.name === "reading" || screen.name === "exhausted";
+  return (
+    screen.name === "age" ||
+    screen.name === "reading" ||
+    screen.name === "exhausted" ||
+    screen.name === "wisdom"
+  );
+}
+
+function isWisdomLoop(screen: LoopScreen): boolean {
+  return screen.name === "wisdom";
 }
 
 function prefillFrom(screen: Screen, sessionAge: string): string {
+  if (screen.name === "wisdom") {
+    return contributionPrefillForWisdom(true, sessionAge);
+  }
   if (screen.name === "reading" || screen.name === "exhausted") {
     return String(screen.age);
   }
   if (screen.name === "contribute" || screen.name === "received") {
     const resume = screen.resume;
+    if (resume.name === "wisdom") {
+      return contributionPrefillForWisdom(true, sessionAge);
+    }
     if (resume.name === "reading" || resume.name === "exhausted") {
       return String(resume.age);
     }
@@ -81,6 +104,10 @@ export function AdviceExperience() {
     }
     if (screen.name === "received") {
       document.title = RECEIVED_TITLE;
+      return;
+    }
+    if (screen.name === "wisdom") {
+      document.title = wisdomTitle(screen.age);
       return;
     }
     document.title = adviceTitle(screen.age);
@@ -255,6 +282,12 @@ export function AdviceExperience() {
 
   function handleValidAge(age: number) {
     setPrefillAge(String(age));
+    if (isWisdomSharingAge(age)) {
+      requestSeq.current += 1;
+      setLoading(false);
+      setScreen({ name: "wisdom", age });
+      return;
+    }
     void requestAdvice(age, "first");
   }
 
@@ -268,6 +301,7 @@ export function AdviceExperience() {
     );
   }
   if (screen.name === "contribute") {
+    const resumeWisdom = isWisdomLoop(screen.resume);
     const restoreAdvice =
       screen.resume.name === "reading" || screen.resume.name === "exhausted";
     const canReturnToAdvice = restoreAdvice || prefillAge !== "";
@@ -276,20 +310,32 @@ export function AdviceExperience() {
         key={screen.formKey}
         initialMinAge={screen.prefill}
         initialMaxAge={screen.prefill}
-        backLabel={canReturnToAdvice ? "Back to advice" : "Back"}
+        backLabel={resumeWisdom || !canReturnToAdvice ? "Back" : "Back to advice"}
         onBack={() => restoreLoop(screen.resume)}
         onReceived={() => setScreen({ name: "received", resume: screen.resume })}
       />
     );
   }
   if (screen.name === "received") {
+    const resumeWisdom = isWisdomLoop(screen.resume);
     const restoreAdvice =
       screen.resume.name === "reading" || screen.resume.name === "exhausted";
     return (
       <ContributionReceived
-        primaryLabel={restoreAdvice ? "Back to advice" : "See advice"}
-        onPrimary={() => (restoreAdvice ? restoreLoop(screen.resume) : goToAge())}
+        primaryLabel={resumeWisdom ? "Back" : restoreAdvice ? "Back to advice" : "See advice"}
+        onPrimary={() =>
+          resumeWisdom || restoreAdvice ? restoreLoop(screen.resume) : goToAge()
+        }
         onOfferAnother={() => openContribute(true)}
+      />
+    );
+  }
+  if (screen.name === "wisdom") {
+    return (
+      <WisdomInvite
+        age={screen.age}
+        onChangeAge={goToAge}
+        onOfferAdvice={() => openContribute(false)}
       />
     );
   }

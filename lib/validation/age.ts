@@ -1,5 +1,6 @@
 const MIN_AGE = 10;
 const MAX_AGE = 100;
+const WISDOM_SHARING_MIN_AGE = 75;
 
 export type AgeIssue = "empty" | "range" | "integer";
 
@@ -58,4 +59,9 @@ export function parseContributionAgeRange(
     return { ok: false, order: true };
   }
   return { ok: true, minimumAge: minimum.age, maximumAge: maximum.age };
+}
+
+/** Ages 75–100 use the wisdom-sharing path, not public advice selection. */
+export function isWisdomSharingAge(age: number): boolean {
+  return age >= WISDOM_SHARING_MIN_AGE && age <= MAX_AGE;
 }
