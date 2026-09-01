@@ -9,11 +9,8 @@ import { AgeLanding } from "@/components/age-landing";
 import { ContributionReceived } from "@/components/contribution-received";
 import { OfferAdviceForm } from "@/components/offer-advice-form";
 import type { PublicAdviceItem } from "@/lib/domain/public-advice";
-import {
-  rememberSeen,
-  seenIdsForAge,
-  type SeenByAge,
-} from "@/lib/session/exclusion";
+import { rememberSeen, type SeenByAge } from "@/lib/session/exclusion";
+import { pickInAdviceSession } from "@/lib/session/advice-cycle";
 
 type LoopScreen =
   | { name: "age" }
@@ -170,16 +167,22 @@ export function AdviceExperience() {
           : current,
       );
     }
-    const result = await resolveAction(
-      () => requestPublicAdvice(age, seenIdsForAge(seen, age)),
-      { kind: "unavailable" as const },
+    const { result, seen: nextSeen } = await pickInAdviceSession(
+      age,
+      mode,
+      seen,
+      (requestedAge, ids) =>
+        resolveAction(
+          () => requestPublicAdvice(requestedAge, ids),
+          { kind: "unavailable" as const },
+        ),
     );
     if (seq !== requestSeq.current) {
       return;
     }
     setLoading(false);
+    setSeenByAge(nextSeen);
     if (result.kind === "item") {
-      setSeenByAge((current) => rememberSeen(current, result.age, result.item.id));
       setScreen({
         name: "reading",
         age: result.age,
