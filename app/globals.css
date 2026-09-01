@@ -1,22 +1,23 @@
 @import "tailwindcss";
 /*
-Quiet Paper tokens from docs/product/visual-design-system.md.
+Quiet Paper colour tokens. Semantic names match docs/product/visual-design-system.md.
+Values are a single warm dim-room palette (not a light/dark switcher).
 Raw values live on --qp-* so Tailwind theme keys do not recurse.
 */
 :root {
-  --qp-canvas: #f4efe6;
-  --qp-surface: #fbf8f3;
-  --qp-ink: #1c1917;
-  --qp-ink-secondary: #4f4a44;
-  --qp-ink-muted: #6f6962;
-  --qp-border: #c9bdaa;
-  --qp-action-hover: #3a342e;
-  --qp-action-text: #f7f3eb;
-  --qp-action-secondary-hover: #ebe4d8;
-  --qp-success: #215c38;
-  --qp-warning: #8a5a12;
-  --qp-danger: #8f2d2a;
-  --qp-overlay: rgb(28 25 23 / 40%);
+  --qp-canvas: #161310;
+  --qp-surface: #1f1b17;
+  --qp-ink: #ede6dc;
+  --qp-ink-secondary: #b7afa5;
+  --qp-ink-muted: #9a9187;
+  --qp-border: #5c5349;
+  --qp-action-hover: #d8cfc3;
+  --qp-action-text: #161310;
+  --qp-action-secondary-hover: #2a2520;
+  --qp-success: #a3c9a8;
+  --qp-warning: #d2b07a;
+  --qp-danger: #d4a09a;
+  --qp-overlay: rgb(8 6 4 / 55%);
   --font-advice-stack: var(--font-advice), "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --font-ui-stack: var(--font-ui), system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --type-advice-size: 1.625rem;
@@ -45,7 +46,7 @@ Raw values live on --qp-* so Tailwind theme keys do not recurse.
   --radius-control: 8px;
   --radius-dialog: 12px;
   --shadow-none: none;
-  --shadow-dialog: 0 8px 24px rgb(28 25 23 / 10%);
+  --shadow-dialog: 0 8px 24px rgb(8 6 4 / 45%);
   --layout-advice: 36rem;
   --layout-wide: 42rem;
   --layout-dialog: 28rem;
@@ -92,6 +93,7 @@ Raw values live on --qp-* so Tailwind theme keys do not recurse.
 }
 html {
   height: 100%;
+  color-scheme: dark;
 }
 body {
   min-height: 100%;
