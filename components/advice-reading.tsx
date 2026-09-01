@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { submitAdviceReport } from "@/app/actions/report";
+import { resolveAction } from "@/lib/client/resolve-action";
 import { OfferAdviceLink } from "@/components/offer-advice-link";
 import { ReportDialog } from "@/components/report-dialog";
 import { Button } from "@/components/ui/button";
@@ -75,7 +76,10 @@ export function AdviceReading({
     }
     setReportBusy(true);
     setReportError(null);
-    const result = await submitAdviceReport({ adviceId: itemId });
+    const result = await resolveAction(
+      () => submitAdviceReport({ adviceId: itemId }),
+      { kind: "unavailable" as const },
+    );
     setReportBusy(false);
     if (result.kind === "rate-limited") {
       setReportError("rate-limited");

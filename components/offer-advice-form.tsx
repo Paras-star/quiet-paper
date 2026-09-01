@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { submitCommunityAdvice } from "@/app/actions/contribute";
+import { resolveAction } from "@/lib/client/resolve-action";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { InlineAlert } from "@/components/ui/inline-alert";
@@ -94,11 +95,15 @@ export function OfferAdviceForm({
       return;
     }
     setBusy(true);
-    const result = await submitCommunityAdvice({
-      minAge: range.ok ? range.minimumAge : minAge,
-      maxAge: range.ok ? range.maximumAge : maxAge,
-      body: parsedBody.ok ? parsedBody.body : body,
-    });
+    const result = await resolveAction(
+      () =>
+        submitCommunityAdvice({
+          minAge: range.ok ? range.minimumAge : minAge,
+          maxAge: range.ok ? range.maximumAge : maxAge,
+          body: parsedBody.ok ? parsedBody.body : body,
+        }),
+      { kind: "unavailable" as const },
+    );
     setBusy(false);
     if (result.kind === "received") {
       onReceived();

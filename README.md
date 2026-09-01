@@ -25,7 +25,9 @@ npm install
 npm run dev
 ```
 
-Then open the URL printed in the terminal. Other checks:
+Then open **http://127.0.0.1:43123** or **http://localhost:43123**. The dev script binds `0.0.0.0` so a hosted preview proxy can reach the process. `next.config.ts` allowlists `127.0.0.1` and `*.agent.cvm.dev` in development so Next.js will still load client JavaScript from those origins (the default allowlist is `localhost` only). Server Actions also allow `*.agent.cvm.dev` / `*.cursorvm.com` because the preview proxy’s `Origin` and `x-forwarded-host` differ.
+
+Other checks:
 
 ```bash
 npm run lint

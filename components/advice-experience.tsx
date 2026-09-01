@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { requestPublicAdvice } from "@/app/actions/advice";
+import { resolveAction } from "@/lib/client/resolve-action";
 import { AdviceExhausted } from "@/components/advice-exhausted";
 import { AdviceReading } from "@/components/advice-reading";
 import { AgeLanding } from "@/components/age-landing";
@@ -169,7 +170,10 @@ export function AdviceExperience() {
           : current,
       );
     }
-    const result = await requestPublicAdvice(age, seenIdsForAge(seen, age));
+    const result = await resolveAction(
+      () => requestPublicAdvice(age, seenIdsForAge(seen, age)),
+      { kind: "unavailable" as const },
+    );
     if (seq !== requestSeq.current) {
       return;
     }
