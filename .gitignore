@@ -1,6 +1,7 @@
 node_modules/
 dist/
 *.log
+*.tsbuildinfo
 
 # Runtime data store (created at runtime)
 server/data/notes.json
