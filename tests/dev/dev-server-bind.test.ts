@@ -16,11 +16,10 @@ describe("dev server bind and origins", () => {
     expect(config).toContain("*.agent.cvm.dev");
   });
 
-  it("allowlists preview origins so Server Actions are not aborted by the proxy host mismatch", () => {
+  it("does not extra-allowlist preview origins for Server Actions", () => {
     const config = readFileSync("next.config.ts", "utf8");
-    expect(config).toContain("serverActions");
-    expect(config).toContain("allowedOrigins");
-    expect(config).toContain("*.agent.cvm.dev");
-    expect(config).toContain("*.cursorvm.com");
+    expect(config).not.toContain("allowedOrigins");
+    expect(config).not.toContain("serverActions");
+    expect(config).not.toContain("*.cursorvm.com");
   });
 });
