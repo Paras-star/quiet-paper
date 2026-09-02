@@ -262,7 +262,7 @@ export function OfferAdviceForm({
           </Field>
           <p id="advice-body-count" className="type-meta mt-[var(--space-2)] m-0">
             {body.length} / {ADVICE_BODY_MAX_CHARS} characters (provisional engineering
-            maximum; U2 is unresolved)
+            maximum)
           </p>
         </div>
         <ul

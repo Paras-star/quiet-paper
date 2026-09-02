@@ -84,9 +84,19 @@ describe("footer legal links", () => {
     expect(source).toContain('href="/privacy"');
     expect(source).toContain('href="/terms"');
     expect(source).toContain('href="#how-this-works"');
-    expect(source).toContain('href="#offer-advice"');
+    expect(source).toContain('href="/#offer-advice"');
     expect(source).toContain('href="#guidelines"');
     expect(source).not.toContain('href="#privacy"');
+    expect(source).not.toMatch(/\bU12\b/);
+  });
+});
+
+describe("visitor-facing copy", () => {
+  it("does not expose the U2 tracker id in the contribution form", () => {
+    const source = readFileSync("components/offer-advice-form.tsx", "utf8");
+    expect(source).toContain("provisional engineering");
+    expect(source).toContain("maximum");
+    expect(source).not.toMatch(/\bU2\b/);
   });
 });
 

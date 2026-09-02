@@ -17,7 +17,7 @@ export function SiteFooter() {
               <TextLink href="/terms">Terms</TextLink>
             </li>
             <li>
-              <TextLink href="#offer-advice">Offer advice</TextLink>
+              <TextLink href="/#offer-advice">Offer advice</TextLink>
             </li>
             <li>
               <TextLink href="#guidelines">Guidelines</TextLink>
@@ -25,8 +25,8 @@ export function SiteFooter() {
           </ul>
         </nav>
         <p className="type-meta m-0">
-          How this works and Guidelines are placeholders until those pages exist
-          (U12). Offer advice opens the contribution form.
+          How this works and Guidelines are placeholders until those pages exist.
+          Offer advice opens the contribution form.
         </p>
         <p className="type-meta m-0">
           This is personal opinion, not professional advice. If you are in danger or in
