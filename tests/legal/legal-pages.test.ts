@@ -45,11 +45,15 @@ describe("privacy policy page", () => {
     expect(source).toMatch(/Supabase/);
     expect(source).toMatch(/contact information\s+provided on this site/i);
     expect(source).not.toMatch(/mailto:/);
-    expect(source).toMatch(/do not currently use analytics, advertising/i);
+    expect(source).toMatch(/Vercel Web Analytics/i);
+    expect(source).toMatch(/basic page views and\s+traffic/i);
+    expect(source).toMatch(/We do not use advertising, newsletters, or visitor accounts/i);
+    expect(source).not.toMatch(/do not currently use analytics/i);
   });
 
-  it("does not invent analytics, advertising, accounts, or a contact address", () => {
-    expect(source).toMatch(/do not currently use analytics, advertising/i);
+  it("does not invent advertising, accounts, cookies, or a contact address", () => {
+    expect(source).toMatch(/We do not use advertising, newsletters, or visitor accounts/i);
+    expect(source).not.toMatch(/tracking cookies/i);
     expect(source).not.toMatch(/@quiet-paper/);
     expect(source).not.toMatch(/Acme|Ltd|LLC|Incorporated/);
   });
