@@ -2,10 +2,11 @@ import { describe, expect, it } from "vitest";
 import { contributionPrefillForWisdom, shouldEnterWisdomSharing } from "@/lib/session/wisdom";
 
 describe("wisdom sharing session helpers", () => {
-  it("routes 75–100 to wisdom and leaves 10–74 on the advice loop", () => {
-    expect(shouldEnterWisdomSharing(74)).toBe(false);
+  it("routes 71–100 to wisdom and leaves 10–70 on the advice loop", () => {
+    expect(shouldEnterWisdomSharing(70)).toBe(false);
+    expect(shouldEnterWisdomSharing(71)).toBe(true);
+    expect(shouldEnterWisdomSharing(74)).toBe(true);
     expect(shouldEnterWisdomSharing(75)).toBe(true);
-    expect(shouldEnterWisdomSharing(82)).toBe(true);
     expect(shouldEnterWisdomSharing(100)).toBe(true);
     expect(shouldEnterWisdomSharing(25)).toBe(false);
   });

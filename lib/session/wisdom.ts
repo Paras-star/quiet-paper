@@ -1,6 +1,6 @@
 import { isWisdomSharingAge } from "@/lib/validation/age";
 
-/** Target-age fields stay empty when offering from the 75–100 wisdom path. */
+/** Target-age fields stay empty when offering from the 71–100 wisdom path. */
 export function contributionPrefillForWisdom(fromWisdom: boolean, sessionAge: string): string {
   if (fromWisdom) {
     return "";
