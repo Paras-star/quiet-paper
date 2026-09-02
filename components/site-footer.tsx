@@ -11,7 +11,10 @@ export function SiteFooter() {
               <TextLink href="#how-this-works">How this works</TextLink>
             </li>
             <li>
-              <TextLink href="#privacy">Privacy</TextLink>
+              <TextLink href="/privacy">Privacy</TextLink>
+            </li>
+            <li>
+              <TextLink href="/terms">Terms</TextLink>
             </li>
             <li>
               <TextLink href="#offer-advice">Offer advice</TextLink>
@@ -22,7 +25,7 @@ export function SiteFooter() {
           </ul>
         </nav>
         <p className="type-meta m-0">
-          How this works, Privacy, and Guidelines are placeholders until those pages exist
+          How this works and Guidelines are placeholders until those pages exist
           (U12). Offer advice opens the contribution form.
         </p>
         <p className="type-meta m-0">

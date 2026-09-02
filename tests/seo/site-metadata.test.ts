@@ -37,10 +37,14 @@ describe("robots.txt", () => {
 });
 
 describe("sitemap.xml", () => {
-  it("indexes only the homepage and does not emit per-age URLs", () => {
+  it("indexes the homepage and public legal pages, not per-age URLs", () => {
     const entries = sitemap();
-    expect(entries).toHaveLength(1);
-    expect(entries[0]?.url).toBe(SITE_URL);
+    const urls = entries.map((entry) => entry.url);
+    expect(urls).toEqual([
+      SITE_URL,
+      `${SITE_ORIGIN}/privacy`,
+      `${SITE_ORIGIN}/terms`,
+    ]);
     expect(JSON.stringify(entries)).not.toMatch(/\/age\//);
   });
 });
