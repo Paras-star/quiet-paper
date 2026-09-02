@@ -7,8 +7,10 @@ vi.mock("@/lib/data/supabase-server", () => ({
   createServiceRoleClient: () => createServiceRoleClient(),
 }));
 import { pickPublicAdvice } from "@/lib/data/advice-select";
+import { MAX_ADVICE_EXCLUSION_IDS } from "@/lib/session/exclusion";
 const ITEM_ID = "550e8400-e29b-41d4-a716-446655440000";
 const OTHER_ID = "11111111-1111-4111-8111-111111111111";
+const THIRD_ID = "22222222-2222-4222-8222-222222222222";
 
 describe("pickPublicAdvice", () => {
   beforeEach(() => {
@@ -66,5 +68,31 @@ describe("pickPublicAdvice", () => {
     expect(rpc).toHaveBeenCalledWith("pick_public_advice", {
       p_age: 30, p_exclude: [ITEM_ID],
     });
+  });
+  it("keeps a normal uuid exclusion list unchanged for the rpc", async () => {
+    createServiceRoleClient.mockReturnValue({ rpc });
+    rpc.mockResolvedValue({
+      data: [{ id: THIRD_ID, body: "Keep one evening free." }],
+      error: null,
+    });
+    await pickPublicAdvice(25, { seenIds: [ITEM_ID, OTHER_ID] });
+    expect(rpc).toHaveBeenCalledWith("pick_public_advice", {
+      p_age: 25, p_exclude: [ITEM_ID, OTHER_ID],
+    });
+  });
+  it("does not pass more exclusion uuids to the rpc than the server maximum", async () => {
+    createServiceRoleClient.mockReturnValue({ rpc });
+    rpc.mockResolvedValue({ data: [], error: null });
+    const extras = Array.from({ length: MAX_ADVICE_EXCLUSION_IDS }, (_, index) =>
+      `33333333-3333-4333-8333-${String(index).padStart(12, "0")}`,
+    );
+    await pickPublicAdvice(25, {
+      seenIds: [ITEM_ID, "not-a-uuid", ...extras, OTHER_ID],
+    });
+    const sent = rpc.mock.calls[0]?.[1]?.p_exclude as string[];
+    expect(sent).toHaveLength(MAX_ADVICE_EXCLUSION_IDS);
+    expect(sent[0]).toBe(ITEM_ID);
+    expect(sent).not.toContain("not-a-uuid");
+    expect(sent).not.toContain(OTHER_ID);
   });
 });

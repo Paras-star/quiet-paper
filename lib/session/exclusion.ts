@@ -15,6 +15,9 @@ export type AdviceExclusion = {
   seenIds: readonly string[];
 };
 
+/** Upper bound on UUIDs sent to pick_public_advice. Above the current corpus. */
+export const MAX_ADVICE_EXCLUSION_IDS = 200;
+
 export type SeenByAge = Readonly<Record<number, readonly string[]>>;
 
 export function seenIdsForAge(seen: SeenByAge, age: number): readonly string[] {

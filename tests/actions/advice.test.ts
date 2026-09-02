@@ -48,4 +48,22 @@ describe("requestPublicAdvice", () => {
     await expect(requestPublicAdvice(101, [])).resolves.toEqual({ kind: "invalid-age" });
     expect(pickPublicAdvice).toHaveBeenCalledWith(101, { seenIds: [] });
   });
+
+  it("forwards a normal exclusion list to selection unchanged", async () => {
+    const seen = [
+      "550e8400-e29b-41d4-a716-446655440000",
+      "11111111-1111-4111-8111-111111111111",
+    ];
+    await requestPublicAdvice(25, seen);
+    expect(pickPublicAdvice).toHaveBeenCalledWith(25, { seenIds: seen });
+  });
+
+  it("does not select when the select rate limit is exhausted", async () => {
+    consumeRateLimit.mockReturnValue("limited");
+    await expect(requestPublicAdvice(25, ["550e8400-e29b-41d4-a716-446655440000"])).resolves.toEqual({
+      kind: "rate-limited",
+    });
+    expect(consumeRateLimit).toHaveBeenCalledWith("select", "test-key");
+    expect(pickPublicAdvice).not.toHaveBeenCalled();
+  });
 });

@@ -1,13 +1,14 @@
 import "server-only";
 import { parseRequestedAge } from "@/lib/validation/age";
 import type { PublicAdvicePick } from "@/lib/domain/public-advice";
-import type { AdviceExclusion } from "@/lib/session/exclusion";
+import { MAX_ADVICE_EXCLUSION_IDS, type AdviceExclusion } from "@/lib/session/exclusion";
 import { createServiceRoleClient } from "@/lib/data/supabase-server";
 
 function toUuidList(ids: readonly string[]): string[] {
-  return ids.filter((id) =>
+  const uuids = ids.filter((id) =>
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id),
   );
+  return uuids.slice(0, MAX_ADVICE_EXCLUSION_IDS);
 }
 
 /**
