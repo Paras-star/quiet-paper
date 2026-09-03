@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { StepperButton } from "@/components/ui/stepper-button";
 import { TextField } from "@/components/ui/text-field";
+import { SITE_LINE } from "@/lib/site";
 
 const MIN_AGE = 10;
 const MAX_AGE = 100;
@@ -132,7 +133,8 @@ export function AgeLanding({
   return (
     <>
       <h1 className="type-title m-0">Advice for the age you are.</h1>
-      <p className="type-body mt-[var(--space-5)] m-0">
+      <p className="type-body mt-[var(--space-5)] m-0">{SITE_LINE}</p>
+      <p className="type-body mt-[var(--space-4)] m-0">
         Enter an age from 10 to 100. We’ll show one piece of advice for that time of
         life. You don’t need an account.
       </p>

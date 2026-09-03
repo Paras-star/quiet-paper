@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageColumn } from "@/components/page-column";
+import { SITE_NAME } from "@/lib/site";
 
 export function SiteHeader() {
   return (
@@ -10,7 +11,7 @@ export function SiteHeader() {
           aria-label="Home"
           className="type-ui inline-flex min-h-[44px] min-w-[44px] items-center text-ink no-underline"
         >
-          the site
+          {SITE_NAME}
         </Link>
       </PageColumn>
     </header>

@@ -13,6 +13,12 @@ import type { PublicAdviceItem } from "@/lib/domain/public-advice";
 import { rememberSeen, type SeenByAge } from "@/lib/session/exclusion";
 import { pickInAdviceSession } from "@/lib/session/advice-cycle";
 import { contributionPrefillForWisdom } from "@/lib/session/wisdom";
+import {
+  experienceDocumentTitle,
+  OFFER_TITLE,
+  RECEIVED_TITLE,
+  SITE_TITLE,
+} from "@/lib/site";
 import { isWisdomSharingAge } from "@/lib/validation/age";
 
 type LoopScreen =
@@ -33,18 +39,6 @@ type Screen =
   | LoopScreen
   | { name: "contribute"; prefill: string; formKey: number; resume: LoopScreen }
   | { name: "received"; resume: LoopScreen };
-
-const AGE_TITLE = "Age · Life advice";
-const OFFER_TITLE = "Offer advice · Life advice";
-const RECEIVED_TITLE = "Received · Life advice";
-
-function adviceTitle(age: number) {
-  return `Advice for age ${age} · Life advice`;
-}
-
-function wisdomTitle(age: number) {
-  return `For age ${age} · Life advice`;
-}
 
 function isLoopScreen(screen: Screen): screen is LoopScreen {
   return (
@@ -95,7 +89,7 @@ export function AdviceExperience() {
 
   useEffect(() => {
     if (screen.name === "age") {
-      document.title = AGE_TITLE;
+      document.title = SITE_TITLE;
       return;
     }
     if (screen.name === "contribute") {
@@ -106,11 +100,7 @@ export function AdviceExperience() {
       document.title = RECEIVED_TITLE;
       return;
     }
-    if (screen.name === "wisdom") {
-      document.title = wisdomTitle(screen.age);
-      return;
-    }
-    document.title = adviceTitle(screen.age);
+    document.title = experienceDocumentTitle(screen.age);
   }, [screen]);
 
   useEffect(() => {

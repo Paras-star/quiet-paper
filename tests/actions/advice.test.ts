@@ -26,24 +26,20 @@ describe("requestPublicAdvice", () => {
     });
   });
 
-  it("does not select public advice for ages 75–100", async () => {
+  it("does not select public advice for ages 71–100", async () => {
+    await expect(requestPublicAdvice(71, [])).resolves.toEqual({ kind: "unavailable" });
+    await expect(requestPublicAdvice(74, [])).resolves.toEqual({ kind: "unavailable" });
     await expect(requestPublicAdvice(75, [])).resolves.toEqual({ kind: "unavailable" });
-    await expect(requestPublicAdvice(82, [])).resolves.toEqual({ kind: "unavailable" });
-    await expect(requestPublicAdvice(99, [])).resolves.toEqual({ kind: "unavailable" });
     await expect(requestPublicAdvice(100, [])).resolves.toEqual({ kind: "unavailable" });
     expect(pickPublicAdvice).not.toHaveBeenCalled();
     expect(coarseClientKey).not.toHaveBeenCalled();
   });
 
-  it("still selects for ages 10–74", async () => {
+  it("still selects for ages 10–70", async () => {
     await requestPublicAdvice(70, []);
-    await requestPublicAdvice(71, []);
-    await requestPublicAdvice(74, []);
     await requestPublicAdvice(25, []);
-    expect(pickPublicAdvice).toHaveBeenCalledTimes(4);
+    expect(pickPublicAdvice).toHaveBeenCalledTimes(2);
     expect(pickPublicAdvice).toHaveBeenCalledWith(70, { seenIds: [] });
-    expect(pickPublicAdvice).toHaveBeenCalledWith(71, { seenIds: [] });
-    expect(pickPublicAdvice).toHaveBeenCalledWith(74, { seenIds: [] });
     expect(pickPublicAdvice).toHaveBeenCalledWith(25, { seenIds: [] });
   });
 

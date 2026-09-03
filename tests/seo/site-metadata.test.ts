@@ -5,22 +5,49 @@ import { describe, expect, it } from "vitest";
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
 import {
+  adviceDocumentTitle,
+  experienceDocumentTitle,
+  OFFER_TITLE,
+  PRIVACY_TITLE,
+  RECEIVED_TITLE,
   SITE_DESCRIPTION,
+  SITE_LINE,
   SITE_NAME,
   SITE_ORIGIN,
   SITE_TITLE,
   SITE_URL,
+  TERMS_TITLE,
+  wisdomDocumentTitle,
 } from "@/lib/site";
 
 describe("production site identity", () => {
-  it("uses the current Vercel production origin and trailing-slash homepage", () => {
-    expect(SITE_ORIGIN).toBe("https://quiet-paper.vercel.app");
-    expect(SITE_URL).toBe("https://quiet-paper.vercel.app/");
-    expect(SITE_NAME).toBe("Quiet Paper");
-    expect(SITE_TITLE).toMatch(/Quiet Paper/);
-    expect(SITE_TITLE.toLowerCase()).toMatch(/age/);
-    expect(SITE_DESCRIPTION.toLowerCase()).toMatch(/random life-advice/);
-    expect(SITE_DESCRIPTION.toLowerCase()).toMatch(/age/);
+  it("uses A Word for You and the public production origin", () => {
+    expect(SITE_ORIGIN).toBe("https://awordforyou.com");
+    expect(SITE_URL).toBe("https://awordforyou.com/");
+    expect(SITE_NAME).toBe("A Word for You");
+    expect(SITE_LINE).toBe("A place for advice worth passing on.");
+    expect(SITE_TITLE).toBe("A Word for You — Life Advice for Every Age");
+    expect(SITE_DESCRIPTION).toBe(
+      "A Word for You is a place for advice worth passing on. Enter an age from 10 to 100 to read one piece of life advice, or to share something you’ve learned. No account required.",
+    );
+    expect(PRIVACY_TITLE).toBe("Privacy — A Word for You");
+    expect(TERMS_TITLE).toBe("Terms — A Word for You");
+    expect(SITE_ORIGIN).not.toContain("quiet-paper");
+    expect(SITE_NAME).not.toContain("Quiet Paper");
+  });
+});
+
+describe("document titles after a valid age", () => {
+  it("uses the advice pattern for ages 10–70 and the wisdom pattern for 71–100", () => {
+    expect(adviceDocumentTitle(25)).toBe("Life Advice for Age 25 — A Word for You");
+    expect(experienceDocumentTitle(10)).toBe("Life Advice for Age 10 — A Word for You");
+    expect(experienceDocumentTitle(70)).toBe("Life Advice for Age 70 — A Word for You");
+    expect(wisdomDocumentTitle(71)).toBe("Wisdom for Age 71 — A Word for You");
+    expect(experienceDocumentTitle(71)).toBe("Wisdom for Age 71 — A Word for You");
+    expect(experienceDocumentTitle(82)).toBe("Wisdom for Age 82 — A Word for You");
+    expect(experienceDocumentTitle(100)).toBe("Wisdom for Age 100 — A Word for You");
+    expect(OFFER_TITLE).toBe("Offer Advice — A Word for You");
+    expect(RECEIVED_TITLE).toBe("Received — A Word for You");
   });
 });
 
@@ -59,6 +86,24 @@ describe("root layout metadata", () => {
     expect(layout).toContain("SITE_TITLE");
     expect(layout).toContain("SITE_DESCRIPTION");
     expect(layout).toContain("SITE_URL");
+    expect(layout).toContain("SITE_NAME");
+    expect(layout).not.toContain("og:image");
+    expect(layout).not.toContain("json-ld");
     expect(layout).not.toContain('"Age · Life advice"');
+  });
+});
+
+describe("visitor-facing chrome", () => {
+  it("uses the brand name in the header and does not overwrite the homepage title on landing", () => {
+    const header = readFileSync("components/site-header.tsx", "utf8");
+    expect(header).toContain("SITE_NAME");
+    expect(header).not.toContain("the site");
+    const landing = readFileSync("components/age-landing.tsx", "utf8");
+    expect(landing).toContain("Advice for the age you are.");
+    expect(landing).toContain("SITE_LINE");
+    const experience = readFileSync("components/advice-experience.tsx", "utf8");
+    expect(experience).toContain("SITE_TITLE");
+    expect(experience).toContain("experienceDocumentTitle");
+    expect(experience).not.toContain("Age · Life advice");
   });
 });

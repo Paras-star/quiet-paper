@@ -13,9 +13,9 @@ export const metadata: Metadata = pageMetadata(TERMS_PATH, TERMS_TITLE, TERMS_DE
 export default function TermsPage() {
   return (
     <LegalDocument title="Terms and disclaimer" lastUpdated={LEGAL_LAST_UPDATED}>
-      <LegalSection title="What Quiet Paper provides">
+      <LegalSection title="What A Word for You provides">
         <p className="type-body m-0">
-          Quiet Paper provides general life advice and perspectives for information
+          A Word for You provides general life advice and perspectives for information
           only. Pieces of advice are chosen at random for an age you enter.
         </p>
       </LegalSection>
@@ -48,7 +48,7 @@ export default function TermsPage() {
           especially minors.
         </p>
         <p className="type-body m-0">
-          Quiet Paper may remove or restrict content that breaks these rules, and
+          A Word for You may remove or restrict content that breaks these rules, and
           may refuse submissions that cannot be published.
         </p>
       </LegalSection>

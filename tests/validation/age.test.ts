@@ -30,15 +30,14 @@ describe("parseContributionAgeRange", () => {
 });
 
 describe("isWisdomSharingAge", () => {
-  it("is true only for 75–100 inclusive", () => {
+  it("is true only for 71–100 inclusive", () => {
     expect(isWisdomSharingAge(70)).toBe(false);
-    expect(isWisdomSharingAge(71)).toBe(false);
-    expect(isWisdomSharingAge(74)).toBe(false);
+    expect(isWisdomSharingAge(71)).toBe(true);
+    expect(isWisdomSharingAge(74)).toBe(true);
     expect(isWisdomSharingAge(75)).toBe(true);
-    expect(isWisdomSharingAge(82)).toBe(true);
-    expect(isWisdomSharingAge(99)).toBe(true);
     expect(isWisdomSharingAge(100)).toBe(true);
     expect(isWisdomSharingAge(101)).toBe(false);
+    expect(isWisdomSharingAge(9)).toBe(false);
     expect(isWisdomSharingAge(25)).toBe(false);
   });
 });

@@ -19,7 +19,7 @@ export default function PrivacyPage() {
     <LegalDocument title="Privacy policy" lastUpdated={LEGAL_LAST_UPDATED}>
       <LegalSection title="What this site is">
         <p className="type-body m-0">
-          Quiet Paper is a public website that shows random life advice organized by
+          A Word for You is a public website that shows random life advice organized by
           age. You can read advice without creating an account.
         </p>
       </LegalSection>
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
           and rate limiting.
         </p>
         <p className="type-body m-0">
-          Quiet Paper uses Vercel Web Analytics to measure basic page views and
+          A Word for You uses Vercel Web Analytics to measure basic page views and
           traffic. We do not use advertising, newsletters, or visitor accounts.
         </p>
       </LegalSection>

@@ -26,6 +26,9 @@ describe("legal page metadata", () => {
     expect(termsMetadata.robots).toEqual({ index: true, follow: true });
     expect(privacyMetadata.alternates?.canonical).toBe(`${SITE_ORIGIN}/privacy`);
     expect(termsMetadata.alternates?.canonical).toBe(`${SITE_ORIGIN}/terms`);
+    expect(PRIVACY_TITLE).toBe("Privacy — A Word for You");
+    expect(TERMS_TITLE).toBe("Terms — A Word for You");
+    expect(SITE_ORIGIN).toBe("https://awordforyou.com");
   });
 });
 
@@ -55,6 +58,8 @@ describe("privacy policy page", () => {
     expect(source).toMatch(/We do not use advertising, newsletters, or visitor accounts/i);
     expect(source).not.toMatch(/tracking cookies/i);
     expect(source).not.toMatch(/@quiet-paper/);
+    expect(source).not.toMatch(/Quiet Paper/);
+    expect(source).toContain("A Word for You");
     expect(source).not.toMatch(/Acme|Ltd|LLC|Incorporated/);
   });
 });
@@ -74,6 +79,8 @@ describe("terms page", () => {
     expect(source).toMatch(/remove or restrict content/i);
     expect(source).not.toMatch(/mailto:/);
     expect(source).not.toMatch(/governing law/i);
+    expect(source).not.toMatch(/Quiet Paper/);
+    expect(source).toContain("A Word for You");
   });
 });
 
@@ -83,9 +90,11 @@ describe("footer legal links", () => {
   it("points Privacy and Terms at the public pages without changing other footer hrefs", () => {
     expect(source).toContain('href="/privacy"');
     expect(source).toContain('href="/terms"');
-    expect(source).toContain('href="#how-this-works"');
     expect(source).toContain('href="/#offer-advice"');
     expect(source).toContain('href="#guidelines"');
+    expect(source).not.toContain('href="#how-this-works"');
+    expect(source).not.toContain("How this works");
+    expect(source).toContain("SITE_NAME");
     expect(source).not.toContain('href="#privacy"');
     expect(source).not.toMatch(/\bU12\b/);
   });
