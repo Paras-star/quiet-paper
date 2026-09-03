@@ -28,7 +28,7 @@ This specification defines:
 - How age targeting works **editorially** (without extra database systems)
 - Topics to include, handle carefully, or refuse
 - Quality, duplication, authorship, and approval
-- How ages 71–100 should be treated later (wisdom-sharing, not conventional advice)
+- How ages 75–100 should be treated later (wisdom-sharing, not conventional advice)
 
 It does **not** create the advice library, change migrations, or change the public AGE → ADVICE → NEXT application.
 
@@ -122,6 +122,7 @@ The following bands are **planning aids** for writers and reviewers. They are no
 | 41–50 |
 | 51–60 |
 | 61–70 |
+| 71–80 |
 
 **Life-stage concepts (approximate, editorial only):**
 
@@ -161,16 +162,17 @@ These themes are **guidance**, not mandatory quotas or public category labels.
 | 56–60 | Insurance optimisation (no assumed national system), social connection, beneficiary review, less domination by external achievement, quiet autonomy, personal values, sustainable enjoyment |
 | 61–65 | Health coverage/planning **appropriate to the reader’s country** (name the country if specific), long-term-care planning, daily routines, strength, social networks |
 | 66–70 | Functional strength, cognitive fitness, retirement/benefit planning without assuming one country’s scheme, healthcare budgeting, community, volunteering, family, preventing isolation |
+| 71–74 | Safe physical movement, functional strength, social connection, medication awareness (not diagnosis or treatment), nutrition and recovery, maintaining independence |
 
 Do not hard-code country-specific programmes (for example a named national health insurance scheme) into general rules. Quiet Paper is international. Country-specific lines must name the jurisdiction.
 
-Ages **71–100** are not given a conventional advice theme list here; see §6.
+Ages **75–100** are not given a conventional advice theme list here; see §6.
 
 ---
 
-## 6. Ages 71–100: Wisdom-Sharing Experience
+## 6. Ages 75–100: Wisdom-Sharing Experience
 
-The founder does **not** want conventional AGE → ADVICE → NEXT to be the primary experience for visitors aged 71–100.
+The founder does **not** want conventional AGE → ADVICE → NEXT to be the primary experience for visitors aged 75–100.
 
 **Principle (later implementation; not built in this task):**
 
@@ -187,7 +189,7 @@ Concept (copy may be refined later):
 
 Technical age support remains 10–100. This section is an editorial/product requirement for a later authorised phase. It does **not** change current application code, selection SQL, or the importer.
 
-The initial conventional editorial corpus does **not** need to cover 71–100 as if it were another advice pool.
+The initial conventional editorial corpus does **not** need to cover 75–100 as if it were another advice pool.
 
 ---
 
@@ -327,8 +329,8 @@ The importer already skips exact body + age-range matches (and supplied UUID col
 | --- | --- |
 | 10–20 | about 10–30 pieces per relevant age/range |
 | 21–49 | about 20–40 pieces per relevant age/range |
-| 50–70 | about 10–30 pieces per relevant age/range |
-| 71–100 | wisdom-sharing experience; **no** conventional advice corpus required for initial launch |
+| 50–74 | about 10–30 pieces per relevant age/range |
+| 75–100 | wisdom-sharing experience; **no** conventional advice corpus required for initial launch |
 
 Do **not** interpret this as hundreds of separate pieces for every integer age immediately. Build progressively. After import, popular ages should have more than one item so “next” is real — without manufacturing near-duplicates.
 
@@ -467,7 +469,7 @@ This document does **not**:
 - Define legal policies (privacy, terms, COPPA/GDPR-K) or close **U1–U20**
 - Change community contribution (`community` + `pending`) or public reporting
 - Change rate limits
-- Implement the 71–100 wisdom-sharing UI
+- Implement the 75–100 wisdom-sharing UI
 - Introduce a new `status` value or require physical deletion of withdrawn editorial rows
 - Introduce a new product-level character maximum
 - Require equal category coverage or a visitor-facing taxonomy
