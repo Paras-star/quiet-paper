@@ -87,16 +87,34 @@ describe("root layout metadata", () => {
     expect(layout).toContain("SITE_DESCRIPTION");
     expect(layout).toContain("SITE_URL");
     expect(layout).toContain("SITE_NAME");
-    expect(layout).not.toContain("og:image");
+    expect(layout).toContain("summary_large_image");
     expect(layout).not.toContain("json-ld");
     expect(layout).not.toContain('"Age · Life advice"');
   });
 });
 
+describe("brand assets", () => {
+  it("keeps the supplied logo and derived icon/OG files", () => {
+    const original = readFileSync("public/brand/a-word-for-you-logo.png");
+    expect(original.length).toBeGreaterThan(1000);
+    expect(readFileSync("app/icon.png").length).toBeGreaterThan(1000);
+    expect(readFileSync("app/apple-icon.png").length).toBeGreaterThan(1000);
+    expect(readFileSync("app/opengraph-image.png").length).toBeGreaterThan(1000);
+    expect(readFileSync("app/twitter-image.png").length).toBeGreaterThan(1000);
+    expect(readFileSync("app/opengraph-image.alt.txt", "utf8")).toContain("A Word for You");
+    expect(readFileSync("app/twitter-image.alt.txt", "utf8")).toContain(
+      "A place for advice worth passing on.",
+    );
+  });
+});
+
 describe("visitor-facing chrome", () => {
-  it("uses the brand name in the header and does not overwrite the homepage title on landing", () => {
+  it("uses the brand logo in the header and does not overwrite the homepage title on landing", () => {
     const header = readFileSync("components/site-header.tsx", "utf8");
     expect(header).toContain("SITE_NAME");
+    expect(header).toContain("SITE_LOGO_SRC");
+    expect(header).toContain('alt=""');
+    expect(header).toContain("aria-label={SITE_NAME}");
     expect(header).not.toContain("the site");
     const landing = readFileSync("components/age-landing.tsx", "utf8");
     expect(landing).toContain("Advice for the age you are.");

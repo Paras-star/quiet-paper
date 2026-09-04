@@ -10,6 +10,11 @@ export const SITE_NAME = "A Word for You";
 
 export const SITE_LINE = "A place for advice worth passing on.";
 
+/** Unaltered supplied logo. Opaque dark background; 281×219. */
+export const SITE_LOGO_SRC = "/brand/a-word-for-you-logo.png";
+export const SITE_LOGO_WIDTH = 281;
+export const SITE_LOGO_HEIGHT = 219;
+
 export const SITE_TITLE = "A Word for You — Life Advice for Every Age";
 
 export const SITE_DESCRIPTION =
@@ -66,7 +71,7 @@ export function pageMetadata(path: string, title: string, description: string): 
       description,
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
     },
