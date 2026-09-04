@@ -12,6 +12,7 @@ import {
   RECEIVED_TITLE,
   SITE_DESCRIPTION,
   SITE_LINE,
+  SITE_LOGO_SRC,
   SITE_NAME,
   SITE_ORIGIN,
   SITE_TITLE,
@@ -26,6 +27,7 @@ describe("production site identity", () => {
     expect(SITE_URL).toBe("https://awordforyou.com/");
     expect(SITE_NAME).toBe("A Word for You");
     expect(SITE_LINE).toBe("A place for advice worth passing on.");
+    expect(SITE_LOGO_SRC).toBe("/brand/a-word-for-you-logo-transparent.png");
     expect(SITE_TITLE).toBe("A Word for You — Life Advice for Every Age");
     expect(SITE_DESCRIPTION).toBe(
       "A Word for You is a place for advice worth passing on. Enter an age from 10 to 100 to read one piece of life advice, or to share something you’ve learned. No account required.",
@@ -96,7 +98,9 @@ describe("root layout metadata", () => {
 describe("brand assets", () => {
   it("keeps the supplied logo and derived icon/OG files", () => {
     const original = readFileSync("public/brand/a-word-for-you-logo.png");
+    const headerLogo = readFileSync("public/brand/a-word-for-you-logo-transparent.png");
     expect(original.length).toBeGreaterThan(1000);
+    expect(headerLogo.length).toBeGreaterThan(1000);
     expect(readFileSync("app/icon.png").length).toBeGreaterThan(1000);
     expect(readFileSync("app/apple-icon.png").length).toBeGreaterThan(1000);
     expect(readFileSync("app/opengraph-image.png").length).toBeGreaterThan(1000);
