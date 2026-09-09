@@ -15,10 +15,10 @@ export const SITE_LOGO_SRC = "/brand/a-word-for-you-logo-transparent.png";
 export const SITE_LOGO_WIDTH = 566;
 export const SITE_LOGO_HEIGHT = 441;
 
-export const SITE_TITLE = "A Word for You — Life Advice for Every Age";
+export const SITE_TITLE = "A Word for You · Random life advice by age";
 
 export const SITE_DESCRIPTION =
-  "A Word for You is a place for advice worth passing on. Enter an age from 10 to 100 to read one piece of life advice, or to share something you’ve learned. No account required.";
+  "A Word for You is a random life-advice site organized by age. Enter an age from 10 to 100 to receive one piece of advice. No account required.";
 
 export const OFFER_TITLE = "Offer Advice — A Word for You";
 
