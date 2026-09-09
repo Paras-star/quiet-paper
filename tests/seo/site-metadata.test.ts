@@ -28,10 +28,12 @@ describe("production site identity", () => {
     expect(SITE_NAME).toBe("A Word for You");
     expect(SITE_LINE).toBe("A place for advice worth passing on.");
     expect(SITE_LOGO_SRC).toBe("/brand/a-word-for-you-logo-transparent.png");
-    expect(SITE_TITLE).toBe("A Word for You — Life Advice for Every Age");
+    expect(SITE_TITLE).toBe("A Word for You · Random life advice by age");
     expect(SITE_DESCRIPTION).toBe(
-      "A Word for You is a place for advice worth passing on. Enter an age from 10 to 100 to read one piece of life advice, or to share something you’ve learned. No account required.",
+      "A Word for You is a random life-advice site organized by age. Enter an age from 10 to 100 to receive one piece of advice. No account required.",
     );
+    expect(SITE_TITLE).not.toMatch(/Quiet Paper/i);
+    expect(SITE_DESCRIPTION).not.toMatch(/Quiet Paper/i);
     expect(PRIVACY_TITLE).toBe("Privacy — A Word for You");
     expect(TERMS_TITLE).toBe("Terms — A Word for You");
     expect(SITE_ORIGIN).not.toContain("quiet-paper");
@@ -92,6 +94,7 @@ describe("root layout metadata", () => {
     expect(layout).toContain("summary_large_image");
     expect(layout).not.toContain("json-ld");
     expect(layout).not.toContain('"Age · Life advice"');
+    expect(layout).not.toMatch(/Quiet Paper/i);
   });
 });
 
